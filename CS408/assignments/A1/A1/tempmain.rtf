@@ -1,0 +1,449 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green116\blue0;\red0\green0\blue0;\red100\green56\blue32;
+\red196\green26\blue22;\red170\green13\blue145;\red92\green38\blue153;\red63\green110\blue116;\red28\green0\blue207;
+\red46\green13\blue110;\red38\green71\blue75;}
+{\*\expandedcolortbl;\csgray\c100000;\csgenericrgb\c0\c45600\c0;\csgenericrgb\c0\c0\c0;\csgenericrgb\c39100\c22000\c12500;
+\csgenericrgb\c77000\c10200\c8600;\csgenericrgb\c66500\c5200\c56900;\csgenericrgb\c35900\c14900\c60100;\csgenericrgb\c24700\c43100\c45600;\csgenericrgb\c11000\c0\c81000;
+\csgenericrgb\c18100\c5200\c43100;\csgenericrgb\c14900\c27800\c29400;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab543
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \CocoaLigature0 //\cf3 \
+\cf2 //  main1.cpp\cf3 \
+\cf2 //\cf3 \
+\cf4 #include \cf5 <iostream>\cf4 \
+#include \cf5 <stdlib.h>\cf4 \
+\cf3 \
+\cf4 #include \cf5 "Sleep.h"\cf4 \
+#include \cf5 <GLUT/glut.h>\cf4 \
+#include \cf5 "ObjLibrary/Vector2.h"\cf4 \
+\cf3 \
+\cf6 using\cf3  \cf6 namespace\cf3  \cf7 std\cf3 ;\
+\cf6 using\cf3  \cf6 namespace\cf3  \cf8 ObjLibrary\cf3 ;\
+\
+\cf2 //********** function prototypes **********//\cf3 \
+\cf2 //*****************************************//\cf3 \
+\cf6 void\cf3  display();\
+\cf6 void\cf3  idle();\
+\cf6 void\cf3  keyboard (\cf6 unsigned\cf3  \cf6 char\cf3  key, \cf6 int\cf3  x, \cf6 int\cf3  y);\
+\cf6 void\cf3  special (\cf6 int\cf3  special_key, \cf6 int\cf3  x, \cf6 int\cf3  y);\
+\cf6 void\cf3  drawShape(\cf6 float\cf3  i);\
+\cf2 //*****************************************//\cf3 \
+\cf2 //*****************************************//\cf3 \
+\
+\
+\cf2 //****** declare global variables here *****//\cf3 \
+\cf2 //*****************************************//\cf3 \
+\
+\cf2 //color of objects\cf3 \
+\cf6 float\cf3  redColor = \cf9 0.25\cf3 ;\
+\cf6 float\cf3  redColorIncrement = \cf9 0.05\cf3 ;\
+\cf6 float\cf3  greenColor = \cf9 0.25\cf3 ;\
+\cf6 float\cf3  greenColorIncrement = \cf9 0.05\cf3 ;\
+\cf6 float\cf3  blueColor = \cf9 0.25\cf3 ;\
+\cf6 float\cf3  blueColorIncrement = \cf9 0.05\cf3 ;\
+\
+\cf2 //scaling Objects\cf3 \
+\cf6 float\cf3  xScale = \cf9 1.0\cf3 ;\
+\cf6 float\cf3  xScaleIncrement = \cf9 0.01\cf3 ;\
+\cf6 float\cf3  yScale = \cf9 1.0\cf3 ;\
+\cf6 float\cf3  yScaleIncrement = \cf9 0.01\cf3 ;\
+\cf6 float\cf3  zScale = \cf9 0.0\cf3 ;\
+\
+\cf2 //Position and velcoity\cf3 \
+\cf6 float\cf3  xPostion = \cf9 0.0\cf3 ;\
+\cf6 float\cf3  xPosIncrement = \cf9 0.1\cf3 ;\
+\cf6 float\cf3  xVel = \cf9 0.0\cf3 ;\
+\cf6 float\cf3  xVelIncrement = \cf9 0.1\cf3 ;\
+\cf6 float\cf3  yPosition = \cf9 0.0\cf3 ;\
+\cf6 float\cf3  yPosIncrement = \cf9 0.1\cf3 ;\
+\cf6 float\cf3  yVel = \cf9 0.0\cf3 ;\
+\cf6 float\cf3  yVelIncrement = \cf9 0.1\cf3 ;\
+\
+\
+\cf2 //transparency of object\cf3 \
+\cf6 float\cf3  opacity = \cf9 1.0\cf3 ;\
+\cf6 float\cf3  opIncrement = \cf9 0.01\cf3 ;\
+\cf2 //float trans = 0.0f;\cf3 \
+\cf2 //float transIncrement = 0.01f;\cf3 \
+\
+\cf2 //shapes\cf3 \
+\cf6 int\cf3  shape = \cf9 0\cf3 ;\
+\cf6 int\cf3  shIncrement = \cf9 1\cf3 ;\
+\
+\cf2 //*****************************************//\cf3 \
+\cf2 //*****************************************//\cf3 \
+\
+\
+\
+\cf2 //*************** Main Driver *************//\cf3 \
+\cf2 //*****************************************//\cf3 \
+\cf6 int\cf3  main (\cf6 int\cf3  argc, \cf6 char\cf3 ** argv)\
+\{\
+    \cf2 // initialize OpenGL; pass it the command line arguments\cf3 \
+    \cf10 glutInit\cf3 (&argc, argv);\
+    \cf10 glutInitWindowSize\cf3  (\cf9 500\cf3 , \cf9 500\cf3 );\
+    \cf10 glutCreateWindow\cf3 (\cf5 "Assignment1"\cf3 );\
+    \cf10 glutKeyboardFunc\cf3 (\cf11 keyboard\cf3 );\
+    \cf10 glutSpecialFunc\cf3 (\cf11 special\cf3 );\
+    \cf10 glutIdleFunc\cf3 (\cf11 idle\cf3 );\
+    \cf10 glutDisplayFunc\cf3 (\cf11 display\cf3 );\
+    \cf10 glutMainLoop\cf3 ();\
+    \cf6 return\cf3  \cf9 1\cf3 ;\
+\}\
+\cf2 //*****************************************//\cf3 \
+\cf2 //*****************************************//\cf3 \
+\
+\
+\
+\
+\cf2 //******** Function for arrow keys ********//\cf3 \
+\cf6 void\cf3  special (\cf6 int\cf3  special_key, \cf6 int\cf3  x, \cf6 int\cf3  y)\
+\{\
+    \cf6 switch\cf3 (special_key)\
+    \{\
+        \cf6 case\cf3  \cf4 GLUT_KEY_UP\cf3 :\
+            \cf8 xVel\cf3  += \cf8 xVelIncrement\cf3 ;\
+            \cf8 yVel\cf3  += \cf8 yVelIncrement\cf3 ;\
+            \cf6 break\cf3 ;\
+        \cf6 case\cf3  \cf4 GLUT_KEY_DOWN\cf3 :\
+            \cf8 xVel\cf3  -= \cf8 xVelIncrement\cf3 ;\
+            \cf8 yVel\cf3  -= \cf8 yVelIncrement\cf3 ;\
+            \cf6 break\cf3 ;\
+    \}\
+\}\
+\cf2 //*****************************************//\cf3 \
+\cf2 //*****************************************//\cf3 \
+\
+\cf2 //********** Idle function ***************//\cf3 \
+\cf2 //*****************************************//\cf3 \
+\cf6 void\cf3  idle()\
+\{\
+\cf2 //    sleep(0.5); // 30 fps\cf3 \
+    \cf2 // tell OpenGL to redisplay as often as possible\cf3 \
+    \cf10 glutPostRedisplay\cf3 ();\
+\}\
+\cf2 //*****************************************//\cf3 \
+\cf2 //*****************************************//\cf3 \
+\
+\
+\cf2 //********** Keyboard Function ************//\cf3 \
+\cf2 //*****************************************//\cf3 \
+\cf6 void\cf3  keyboard (\cf6 unsigned\cf3  \cf6 char\cf3  key, \cf6 int\cf3  x, \cf6 int\cf3  y)\
+\{\
+    \cf6 switch\cf3 (key)\
+    \{\
+        \cf6 case\cf3  \cf9 'R'\cf3 :\
+        \{\
+           \cf6 if\cf3 (\cf8 redColor\cf3  >= \cf9 0.0\cf3  && \cf8 redColor\cf3  <= \cf9 1.0\cf3 )\
+               \cf8 redColor\cf3  += \cf8 redColorIncrement\cf3 ;\
+            \cf6 else\cf3 \
+                \cf8 redColor\cf3  = \cf9 1.0\cf3 ;\
+            \cf6 break\cf3 ;\
+        \}\
+        \cf6 case\cf3  \cf9 'r'\cf3 :\
+        \{\
+            \cf6 if\cf3 (\cf8 redColor\cf3  >= \cf9 0.0\cf3  && \cf8 redColor\cf3  <= \cf9 1.0\cf3 )\
+                \cf8 redColor\cf3  -=\cf8 redColorIncrement\cf3 ;\
+            \cf6 else\cf3 \
+                \cf8 redColor\cf3  = \cf9 0.0\cf3 ;\
+            \cf6 break\cf3 ;\
+        \}\
+        \cf6 case\cf3  \cf9 'G'\cf3 :\
+        \{\
+            \cf6 if\cf3 (\cf8 greenColor\cf3  >= \cf9 0.0\cf3  && \cf8 greenColor\cf3  <= \cf9 1.0\cf3 )\
+                \cf8 greenColor\cf3  += \cf8 greenColorIncrement\cf3 ;\
+            \cf6 else\cf3 \
+                \cf8 greenColor\cf3  = \cf9 1.0\cf3 ;\
+            \cf6 break\cf3 ;\
+        \}\
+        \cf6 case\cf3  \cf9 'g'\cf3 :\
+        \{\
+            \cf6 if\cf3 (\cf8 greenColor\cf3  >= \cf9 0.0\cf3  && \cf8 greenColor\cf3  <= \cf9 1.0\cf3 )\
+                \cf8 greenColor\cf3  -= \cf8 greenColorIncrement\cf3 ;\
+            \cf6 else\cf3 \
+                \cf8 greenColor\cf3  = \cf9 0.0\cf3 ;\
+            \cf6 break\cf3 ;\
+        \}\
+        \cf6 case\cf3  \cf9 'B'\cf3 :\
+        \{\
+            \cf6 if\cf3 (\cf8 blueColor\cf3  >= \cf9 0.0\cf3  && \cf8 blueColor\cf3  <= \cf9 1.0\cf3 )\
+                \cf8 blueColor\cf3  += \cf8 blueColorIncrement\cf3 ;\
+            \cf6 else\cf3 \
+                \cf8 blueColor\cf3  = \cf9 1.0\cf3 ;\
+            \cf6 break\cf3 ;\
+        \}\
+        \cf6 case\cf3  \cf9 'b'\cf3 :\
+        \{\
+            \cf6 if\cf3 (\cf8 blueColor\cf3  >= \cf9 0.0\cf3  && \cf8 blueColor\cf3  <= \cf9 1.0\cf3 )\
+                \cf8 blueColor\cf3  -= \cf8 blueColorIncrement\cf3 ;\
+            \cf6 else\cf3 \
+                \cf8 blueColor\cf3  = \cf9 0.0\cf3 ;\
+            \cf6 break\cf3 ;\
+        \}\
+        \cf6 case\cf3  \cf9 'T'\cf3 :\
+        \{\
+            \cf6 if\cf3 (\cf8 opacity\cf3  >= \cf9 0.0\cf3  && \cf8 opacity\cf3  <= \cf9 1.0\cf3 )\
+                \cf8 opacity\cf3  += \cf8 opIncrement\cf3 ;\
+            \cf6 else\cf3 \
+            \{\
+                \cf7 cout\cf3  << \cf5 "T is maximum"\cf3 ;\
+                \cf8 opacity\cf3  = \cf9 1.0\cf3 ;\
+            \}\
+            \cf6 break\cf3 ;\
+        \}\
+        \cf6 case\cf3  \cf9 't'\cf3 :\
+        \{\
+            \cf6 if\cf3 (\cf8 opacity\cf3  >= \cf9 0.0\cf3  && \cf8 opacity\cf3  <= \cf9 1.0\cf3 )\
+                \cf8 opacity\cf3  -= \cf8 opIncrement\cf3 ;\
+            \cf6 else\cf3 \
+            \{\
+                \cf7 cout\cf3  << \cf5 "t is min"\cf3 <<\cf10 endl\cf3 ;\
+                \cf8 opacity\cf3  = \cf9 0.05\cf3 ;\
+            \}\
+            \cf6 break\cf3 ;\
+        \}\
+        \cf6 case\cf3  \cf9 '+'\cf3 :\
+        \{\
+            \cf6 if\cf3 (\cf8 xScale\cf3  >= \cf9 0.0f\cf3  && \cf8 xScale\cf3  <= \cf9 3.0f\cf3 )\
+            \{\
+                \cf8 xScale\cf3  += \cf8 xScaleIncrement\cf3 ;\
+                \cf8 yScale\cf3  += \cf8 yScaleIncrement\cf3 ;\
+            \}\
+            \cf6 else\cf3 \
+            \{\
+                \cf7 cout\cf3  << \cf5 "'+' max size"\cf3 <<\cf10 endl\cf3 ;\
+                \cf8 xScale\cf3  = \cf9 3.0\cf3 ;\
+                \cf8 yScale\cf3  = \cf9 3.0\cf3 ;\
+            \}\
+            \cf6 break\cf3 ;\
+        \}\
+        \cf6 case\cf3  \cf9 '-'\cf3 :\
+        \{\
+            \cf6 if\cf3 (\cf8 xScale\cf3  >= \cf9 0.0\cf3  && \cf8 xScale\cf3  <= \cf9 3.0\cf3 )\
+            \{\
+                \cf8 xScale\cf3  -= \cf8 xScaleIncrement\cf3 ;\
+                \cf8 yScale\cf3  -= \cf8 yScaleIncrement\cf3 ;\
+            \}\
+            \cf6 else\cf3 \
+            \{\
+                \cf7 cout\cf3  << \cf5 "'-' min size"\cf3 <<\cf10 endl\cf3 ;\
+                \cf8 xScale\cf3  = \cf9 0.05\cf3 ;\
+                \cf8 yScale\cf3  = \cf9 0.05\cf3 ;\
+            \}\
+            \cf6 break\cf3 ;\
+        \}\
+        \cf6 case\cf3  \cf9 'H'\cf3 :\
+        \{\
+\cf2 //            if(shape >= 0.0f || shape <= 3.0f)\cf3 \
+            \cf6 if\cf3 (\cf8 shape\cf3  >= \cf9 0\cf3  && \cf8 shape\cf3  < \cf9 4\cf3 )\
+                \cf8 shape\cf3  += \cf8 shIncrement\cf3 ;\
+            \cf6 else\cf3 \
+            \{\
+                \cf8 shape\cf3  = \cf9 4\cf3 ;\
+                \cf7 cout\cf3  << \cf5 "'H' is max"\cf3 <<\cf10 endl\cf3 ;\
+            \}\
+            \cf6 break\cf3 ;\
+        \}\
+        \cf6 case\cf3  \cf9 'h'\cf3 :\
+        \{\
+\cf2 //           (shape >= 0.0f || shape <= 3.0f);\cf3 \
+            \cf6 if\cf3 (\cf8 shape\cf3  > \cf9 0\cf3  && \cf8 shape\cf3  <= \cf9 4\cf3 )\
+                \cf8 shape\cf3  -= \cf8 shIncrement\cf3 ;\
+            \cf6 else\cf3 \
+            \{\
+                \cf8 shape\cf3  = \cf9 0\cf3 ;\
+                \cf7 cout\cf3  << \cf5 "'h' is minimum"\cf3 <<\cf10 endl\cf3 ;\
+            \}\
+                \cf6 break\cf3 ;\
+        \}\
+        \cf6 case\cf3  \cf9 'd'\cf3 :\
+        \{\
+            \cf8 xPostion\cf3  += \cf8 xPosIncrement\cf3 ;\
+        \}\
+        \cf6 case\cf3  \cf9 'a'\cf3 :\
+        \{\
+            \cf8 xPostion\cf3  -= \cf8 xPosIncrement\cf3 ;\
+        \}\
+        \cf6 case\cf3  \cf9 'w'\cf3 :\
+        \{\
+            \cf8 yPosition\cf3  += \cf8 yPosIncrement\cf3 ;\
+        \}\
+        \cf6 case\cf3  \cf9 's'\cf3 :\
+        \{\
+            \cf8 yPosition\cf3  -= \cf8 yPosIncrement\cf3 ;\
+        \}\
+            \
+\cf2 //        case 27: // on [ESC]\cf3 \
+\cf2 //            exit(); // normal exit\cf3 \
+\cf2 //            break;\cf3 \
+    \}\
+\}\
+\cf2 //*****************************************//\cf3 \
+\cf2 //*****************************************//\cf3 \
+\
+\
+\cf2 //*****************************************//\cf3 \
+\cf6 void\cf3  display()\
+\{\
+    \cf10 glClear\cf3 (\cf4 GL_COLOR_BUFFER_BIT\cf3 );\
+    \
+    \cf10 glMatrixMode\cf3 (\cf4 GL_MODELVIEW\cf3 );\
+    \
+    \cf10 glPushMatrix\cf3 ();\
+    \cf6 if\cf3 (\cf8 shape\cf3  == \cf9 0\cf3 )\
+    \{\
+        \cf2 //fix this problem!!!!!!!!!!!\cf3 \
+        \cf2 //starfish!(Patrick)\cf3 \
+\cf2 //        glMatrixMode(GL_MODELVIEW);\cf3 \
+        \cf10 glScalef\cf3 (\cf8 xScale\cf3 , \cf8 yScale\cf3 , \cf8 zScale\cf3 ); \cf2 //Scaling object\cf3 \
+        \cf10 glColor4f\cf3 (\cf8 redColor\cf3 , \cf8 greenColor\cf3 , \cf8 blueColor\cf3 , \cf8 opacity\cf3 );\
+        \cf10 glBegin\cf3 (\cf4 GL_TRIANGLE_FAN\cf3 );\
+    \
+        \cf10 glVertex2f\cf3 (-\cf9 0.5f\cf3 , -\cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (\cf9 0.0f\cf3 , -\cf9 0.25f\cf3 );\
+        \cf10 glVertex2f\cf3 ( \cf9 0.5f\cf3 , -\cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (\cf9 0.25f\cf3 , \cf9 0.0f\cf3 );\
+        \cf10 glVertex2f\cf3 ( \cf9 0.5f\cf3 , \cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (\cf9 0.0f\cf3 , \cf9 0.25f\cf3 );\
+        \cf10 glVertex2f\cf3 (-\cf9 0.5f\cf3 , \cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (-\cf9 0.25f\cf3 , \cf9 0.0f\cf3 );\
+        \cf10 glEnd\cf3 ();\
+       \cf2 //glPopMatrix();\cf3 \
+    \}\
+    \cf6 else\cf3  \cf6 if\cf3 (\cf8 shape\cf3  == \cf9 1\cf3 )\
+    \{\
+        \cf2 //Square\cf3 \
+\cf2 //        glPushMatrix();\cf3 \
+        \cf2 //    glColor3f(redColor, greenColor, blueColor);// Color for square\cf3 \
+        \cf2 //    glColor4f(1.0f, 1.0f, 1.0f, 0.5f);\cf3 \
+        \cf10 glBegin\cf3 (\cf4 GL_TRIANGLE_FAN\cf3 );\
+        \cf10 glColor4f\cf3 (\cf8 redColor\cf3 , \cf8 greenColor\cf3 , \cf8 blueColor\cf3 , \cf8 opacity\cf3 );\
+        \cf10 glScalef\cf3 (\cf8 xScale\cf3 , \cf8 yScale\cf3 , \cf8 zScale\cf3 ); \cf2 //Scaling object\cf3 \
+        \cf2 //Square\cf3 \
+        \
+        \cf10 glVertex2f\cf3 (-\cf9 0.5f\cf3 , -\cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (\cf9 0.0f\cf3 , -\cf9 0.05f\cf3 );\
+        \cf10 glVertex2f\cf3 ( \cf9 0.5f\cf3 , -\cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (\cf9 0.5f\cf3 , \cf9 0.0f\cf3 );\
+        \cf10 glVertex2f\cf3 ( \cf9 0.5f\cf3 ,  \cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (\cf9 0.0f\cf3 , \cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (-\cf9 0.5f\cf3 ,  \cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (-\cf9 0.5f\cf3 , \cf9 0.0f\cf3 );\
+\cf2 //        glRotatef(theta, 0.0f, 0.0f, 1.0f);\cf3 \
+        \cf10 glEnd\cf3 ();\
+\cf2 //        glPopMatrix();\cf3 \
+    \}\
+    \cf6 else\cf3  \cf6 if\cf3 (\cf8 shape\cf3  == \cf9 2\cf3 )\
+    \{\
+        \cf2 //octagon\cf3 \
+\cf2 //        glMatrixMode(GL_MODELVIEW);\cf3 \
+\cf2 //        glPushMatrix();\cf3 \
+       \
+        \cf10 glColor4f\cf3 (\cf8 redColor\cf3 , \cf8 greenColor\cf3 , \cf8 blueColor\cf3 , \cf8 opacity\cf3 );\
+        \cf10 glScalef\cf3 (\cf8 xScale\cf3 , \cf8 yScale\cf3 , \cf8 zScale\cf3 ); \cf2 //Scaling object\cf3 \
+        \
+        \cf10 glBegin\cf3 (\cf4 GL_TRIANGLE_FAN\cf3 );\
+        \cf10 glVertex2f\cf3 (-\cf9 0.5f\cf3 , -\cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (\cf9 0.0f\cf3 , -\cf9 0.75f\cf3 );\
+        \cf10 glVertex2f\cf3 ( \cf9 0.5f\cf3 , -\cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (\cf9 0.75f\cf3 , \cf9 0.0f\cf3 );\
+        \cf10 glVertex2f\cf3 ( \cf9 0.5f\cf3 , \cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (\cf9 0.0f\cf3 , \cf9 0.75f\cf3 );\
+        \cf10 glVertex2f\cf3 (-\cf9 0.5f\cf3 ,  \cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (-\cf9 0.75f\cf3 , \cf9 0.0f\cf3 );\
+        \cf10 glEnd\cf3 ();\
+\cf2 //        glPopMatrix();\cf3 \
+    \}\
+    \cf6 else\cf3  \cf6 if\cf3 (\cf8 shape\cf3  == \cf9 3\cf3 )\
+    \{\
+        \cf2 //kite\cf3 \
+        \cf10 glColor4f\cf3 (\cf8 redColor\cf3 , \cf8 greenColor\cf3 , \cf8 blueColor\cf3 , \cf8 opacity\cf3 );\
+        \cf10 glScalef\cf3 (\cf8 xScale\cf3 , \cf8 yScale\cf3 , \cf8 zScale\cf3 ); \cf2 //Scaling object\cf3 \
+        \cf10 glBegin\cf3 (\cf4 GL_TRIANGLE_FAN\cf3 );\
+   \
+        \cf10 glVertex2f\cf3 (-\cf9 0.5f\cf3 , -\cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (\cf9 0.0f\cf3 , -\cf9 1.0f\cf3 );\
+        \cf10 glVertex2f\cf3 ( \cf9 0.5f\cf3 , -\cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (\cf9 1.0f\cf3 , \cf9 0.0f\cf3 );\
+        \cf10 glVertex2f\cf3 (\cf9 0.5f\cf3 , \cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (\cf9 0.0f\cf3 , \cf9 1.0f\cf3 );\
+        \cf10 glVertex2f\cf3 (-\cf9 0.5f\cf3 ,  \cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (-\cf9 1.0f\cf3 , \cf9 0.0f\cf3 );\
+        \cf10 glEnd\cf3 ();\
+\
+    \}\
+    \cf6 else\cf3  \cf6 if\cf3 (\cf8 shape\cf3  == \cf9 4\cf3 )\
+    \{\
+        \cf2 //big star\cf3 \
+\cf2 //        glPushMatrix();\cf3 \
+        \cf10 glColor4f\cf3 (\cf8 redColor\cf3 , \cf8 greenColor\cf3 , \cf8 blueColor\cf3 , \cf8 opacity\cf3 );\
+        \cf10 glScalef\cf3 (\cf8 xScale\cf3 , \cf8 yScale\cf3 , \cf8 zScale\cf3 ); \cf2 //Scaling object\cf3 \
+       \
+        \cf10 glBegin\cf3 (\cf4 GL_TRIANGLE_FAN\cf3 );\
+        \cf10 glVertex2f\cf3 (-\cf9 0.5f\cf3 , -\cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (\cf9 0.0f\cf3 , -\cf9 1.5f\cf3 );\
+        \cf10 glVertex2f\cf3 ( \cf9 0.5f\cf3 , -\cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (\cf9 1.5f\cf3 , \cf9 0.0f\cf3 );\
+        \cf10 glVertex2f\cf3 ( \cf9 0.5f\cf3 , \cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (\cf9 0.0f\cf3 , \cf9 1.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (-\cf9 0.5f\cf3 ,  \cf9 0.5f\cf3 );\
+        \cf10 glVertex2f\cf3 (-\cf9 1.5f\cf3 , \cf9 0.0f\cf3 );\
+        \cf10 glEnd\cf3 ();\
+\cf2 //        glPopMatrix();\cf3 \
+    \}\
+    \cf10 glPopMatrix\cf3 ();\
+\
+    \cf2 // ensure that all buffered OpenGL commands get done\cf3 \
+    \cf10 glFlush\cf3 ();\
+    \cf10 glutSwapBuffers\cf3 ();\
+\}\
+\cf2 //*****************************************//\cf3 \
+\cf2 //*****************************************//\cf3 \
+\
+\cf2 //void drawShape(float i)\cf3 \
+\cf2 //\{\cf3 \
+\cf2 //    if(i == 0.0)\cf3 \
+\cf2 //    \{\cf3 \
+\cf2 //        glPopMatrix();\cf3 \
+\cf2 //        //    glColor3f(redColor, greenColor, blueColor);// Color for square\cf3 \
+\cf2 //        //    glColor4f(1.0f, 1.0f, 1.0f, 0.5f);\cf3 \
+\cf2 //        glColor4f(redColor, greenColor, blueColor, opacity);\cf3 \
+\cf2 //        glScalef(xScale, yScale, zScale); //Scaling object\cf3 \
+\cf2 //        //Square\cf3 \
+\cf2 //        glBegin(GL_TRIANGLE_FAN);\cf3 \
+\cf2 //        glVertex2f(-0.5f, -0.5f);\cf3 \
+\cf2 //        glVertex2f(0.0f, -0.05f);\cf3 \
+\cf2 //        glVertex2f( 0.5f, -0.5f);\cf3 \
+\cf2 //        glVertex2f(0.5f, 0.0f);\cf3 \
+\cf2 //        glVertex2f( 0.5f,  0.5f);\cf3 \
+\cf2 //        glVertex2f(0.0f, 0.5f);\cf3 \
+\cf2 //        glVertex2f(-0.5f,  0.5f);\cf3 \
+\cf2 //        glVertex2f(-0.5f, 0.0f);\cf3 \
+\cf2 //        glRotatef(theta, 0.0f, 0.0f, 1.0f);\cf3 \
+\cf2 //        glEnd();\cf3 \
+\cf2 //\cf3 \
+\cf2 //        glPopMatrix();\cf3 \
+\cf2 //    \}\cf3 \
+\cf2 //    else if(i == 0.5)\cf3 \
+\cf2 //    \{\cf3 \
+\cf2 //            //kite\cf3 \
+\cf2 //        glPopMatrix();\cf3 \
+\cf2 //            glBegin(GL_TRIANGLE_FAN);\cf3 \
+\cf2 //        glColor4f(redColor, greenColor, blueColor, opacity);\cf3 \
+\cf2 //            glVertex2f(-0.3f, -0.5f);\cf3 \
+\cf2 //            glVertex2f(0.0f, -0.05f);\cf3 \
+\cf2 //            glVertex2f( 0.1f, -0.5f);\cf3 \
+\cf2 //            glVertex2f(0.1f, 0.0f);\cf3 \
+\cf2 //            glVertex2f( 0.5f,  0.5f);\cf3 \
+\cf2 //            glVertex2f(0.0f, 0.5f);\cf3 \
+\cf2 //            glVertex2f(-0.4f,  0.5f);\cf3 \
+\cf2 //            glVertex2f(-0.5f, 0.0);\cf3 \
+\cf2 //            glEnd();\cf3 \
+\cf2 //        glPopMatrix();\cf3 \
+\cf2 //\cf3 \
+\cf2 //    \}\cf3 \
+\cf2 //\}\cf3 \
+}

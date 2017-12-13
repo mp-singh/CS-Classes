@@ -1,0 +1,371 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		905AD7701E7889D700E3E8DB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905AD76F1E7889D700E3E8DB /* main.cpp */; };
+		905AD7781E7889E400E3E8DB /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905AD7771E7889E400E3E8DB /* GLUT.framework */; };
+		905AD77A1E7889ED00E3E8DB /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905AD7791E7889ED00E3E8DB /* AGL.framework */; };
+		905AD77C1E7889F200E3E8DB /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905AD77B1E7889F200E3E8DB /* GLKit.framework */; };
+		905AD77E1E7889F700E3E8DB /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 905AD77D1E7889F700E3E8DB /* OpenGL.framework */; };
+		905AD79A1E788A4800E3E8DB /* DisplayList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905AD7801E788A4800E3E8DB /* DisplayList.cpp */; };
+		905AD79B1E788A4800E3E8DB /* Material.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905AD7821E788A4800E3E8DB /* Material.cpp */; };
+		905AD79C1E788A4800E3E8DB /* MtlLibrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905AD7841E788A4800E3E8DB /* MtlLibrary.cpp */; };
+		905AD79D1E788A4800E3E8DB /* MtlLibraryManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905AD7861E788A4800E3E8DB /* MtlLibraryManager.cpp */; };
+		905AD79E1E788A4800E3E8DB /* ObjModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905AD7891E788A4800E3E8DB /* ObjModel.cpp */; };
+		905AD79F1E788A4800E3E8DB /* ObjStringParsing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905AD78C1E788A4800E3E8DB /* ObjStringParsing.cpp */; };
+		905AD7A01E788A4800E3E8DB /* SpriteFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905AD78E1E788A4800E3E8DB /* SpriteFont.cpp */; };
+		905AD7A11E788A4800E3E8DB /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905AD7901E788A4800E3E8DB /* Texture.cpp */; };
+		905AD7A21E788A4800E3E8DB /* TextureBmp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905AD7921E788A4800E3E8DB /* TextureBmp.cpp */; };
+		905AD7A31E788A4800E3E8DB /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905AD7941E788A4800E3E8DB /* TextureManager.cpp */; };
+		905AD7A41E788A4800E3E8DB /* Vector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905AD7961E788A4800E3E8DB /* Vector2.cpp */; };
+		905AD7A51E788A4800E3E8DB /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905AD7981E788A4800E3E8DB /* Vector3.cpp */; };
+		905AD7AA1E788AD200E3E8DB /* Sleep.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 905AD7A81E788AD200E3E8DB /* Sleep.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		905AD76A1E7889D700E3E8DB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = usr/share/man/man1;
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		905AD76C1E7889D700E3E8DB /* A4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = A4; sourceTree = BUILT_PRODUCTS_DIR; };
+		905AD76F1E7889D700E3E8DB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		905AD7771E7889E400E3E8DB /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		905AD7791E7889ED00E3E8DB /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = System/Library/Frameworks/AGL.framework; sourceTree = SDKROOT; };
+		905AD77B1E7889F200E3E8DB /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		905AD77D1E7889F700E3E8DB /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		905AD7801E788A4800E3E8DB /* DisplayList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DisplayList.cpp; path = ObjLibrary/DisplayList.cpp; sourceTree = SOURCE_ROOT; };
+		905AD7811E788A4800E3E8DB /* DisplayList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DisplayList.h; path = ObjLibrary/DisplayList.h; sourceTree = SOURCE_ROOT; };
+		905AD7821E788A4800E3E8DB /* Material.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Material.cpp; path = ObjLibrary/Material.cpp; sourceTree = SOURCE_ROOT; };
+		905AD7831E788A4800E3E8DB /* Material.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Material.h; path = ObjLibrary/Material.h; sourceTree = SOURCE_ROOT; };
+		905AD7841E788A4800E3E8DB /* MtlLibrary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MtlLibrary.cpp; path = ObjLibrary/MtlLibrary.cpp; sourceTree = SOURCE_ROOT; };
+		905AD7851E788A4800E3E8DB /* MtlLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MtlLibrary.h; path = ObjLibrary/MtlLibrary.h; sourceTree = SOURCE_ROOT; };
+		905AD7861E788A4800E3E8DB /* MtlLibraryManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MtlLibraryManager.cpp; path = ObjLibrary/MtlLibraryManager.cpp; sourceTree = SOURCE_ROOT; };
+		905AD7871E788A4800E3E8DB /* MtlLibraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MtlLibraryManager.h; path = ObjLibrary/MtlLibraryManager.h; sourceTree = SOURCE_ROOT; };
+		905AD7881E788A4800E3E8DB /* ObjLibrary-development-log.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "ObjLibrary-development-log.txt"; path = "ObjLibrary/ObjLibrary-development-log.txt"; sourceTree = SOURCE_ROOT; };
+		905AD7891E788A4800E3E8DB /* ObjModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjModel.cpp; path = ObjLibrary/ObjModel.cpp; sourceTree = SOURCE_ROOT; };
+		905AD78A1E788A4800E3E8DB /* ObjModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjModel.h; path = ObjLibrary/ObjModel.h; sourceTree = SOURCE_ROOT; };
+		905AD78B1E788A4800E3E8DB /* ObjSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjSettings.h; path = ObjLibrary/ObjSettings.h; sourceTree = SOURCE_ROOT; };
+		905AD78C1E788A4800E3E8DB /* ObjStringParsing.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjStringParsing.cpp; path = ObjLibrary/ObjStringParsing.cpp; sourceTree = SOURCE_ROOT; };
+		905AD78D1E788A4800E3E8DB /* ObjStringParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjStringParsing.h; path = ObjLibrary/ObjStringParsing.h; sourceTree = SOURCE_ROOT; };
+		905AD78E1E788A4800E3E8DB /* SpriteFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpriteFont.cpp; path = ObjLibrary/SpriteFont.cpp; sourceTree = SOURCE_ROOT; };
+		905AD78F1E788A4800E3E8DB /* SpriteFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteFont.h; path = ObjLibrary/SpriteFont.h; sourceTree = SOURCE_ROOT; };
+		905AD7901E788A4800E3E8DB /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Texture.cpp; path = ObjLibrary/Texture.cpp; sourceTree = SOURCE_ROOT; };
+		905AD7911E788A4800E3E8DB /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Texture.h; path = ObjLibrary/Texture.h; sourceTree = SOURCE_ROOT; };
+		905AD7921E788A4800E3E8DB /* TextureBmp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TextureBmp.cpp; path = ObjLibrary/TextureBmp.cpp; sourceTree = SOURCE_ROOT; };
+		905AD7931E788A4800E3E8DB /* TextureBmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextureBmp.h; path = ObjLibrary/TextureBmp.h; sourceTree = SOURCE_ROOT; };
+		905AD7941E788A4800E3E8DB /* TextureManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TextureManager.cpp; path = ObjLibrary/TextureManager.cpp; sourceTree = SOURCE_ROOT; };
+		905AD7951E788A4800E3E8DB /* TextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextureManager.h; path = ObjLibrary/TextureManager.h; sourceTree = SOURCE_ROOT; };
+		905AD7961E788A4800E3E8DB /* Vector2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector2.cpp; path = ObjLibrary/Vector2.cpp; sourceTree = SOURCE_ROOT; };
+		905AD7971E788A4800E3E8DB /* Vector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector2.h; path = ObjLibrary/Vector2.h; sourceTree = SOURCE_ROOT; };
+		905AD7981E788A4800E3E8DB /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vector3.cpp; path = ObjLibrary/Vector3.cpp; sourceTree = SOURCE_ROOT; };
+		905AD7991E788A4800E3E8DB /* Vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Vector3.h; path = ObjLibrary/Vector3.h; sourceTree = SOURCE_ROOT; };
+		905AD7A61E788A7C00E3E8DB /* GetGlut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetGlut.h; sourceTree = "<group>"; };
+		905AD7A71E788AD200E3E8DB /* Main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Main.h; sourceTree = "<group>"; };
+		905AD7A81E788AD200E3E8DB /* Sleep.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sleep.cpp; sourceTree = "<group>"; };
+		905AD7A91E788AD200E3E8DB /* Sleep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sleep.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		905AD7691E7889D700E3E8DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				905AD77E1E7889F700E3E8DB /* OpenGL.framework in Frameworks */,
+				905AD77C1E7889F200E3E8DB /* GLKit.framework in Frameworks */,
+				905AD77A1E7889ED00E3E8DB /* AGL.framework in Frameworks */,
+				905AD7781E7889E400E3E8DB /* GLUT.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		905AD7631E7889D700E3E8DB = {
+			isa = PBXGroup;
+			children = (
+				905AD76E1E7889D700E3E8DB /* A4 */,
+				905AD76D1E7889D700E3E8DB /* Products */,
+				905AD7761E7889E400E3E8DB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		905AD76D1E7889D700E3E8DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				905AD76C1E7889D700E3E8DB /* A4 */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		905AD76E1E7889D700E3E8DB /* A4 */ = {
+			isa = PBXGroup;
+			children = (
+				905AD7A71E788AD200E3E8DB /* Main.h */,
+				905AD7A81E788AD200E3E8DB /* Sleep.cpp */,
+				905AD7A91E788AD200E3E8DB /* Sleep.h */,
+				905AD76F1E7889D700E3E8DB /* main.cpp */,
+				905AD7A61E788A7C00E3E8DB /* GetGlut.h */,
+				905AD77F1E788A2300E3E8DB /* ObjLibrary */,
+			);
+			path = A4;
+			sourceTree = "<group>";
+		};
+		905AD7761E7889E400E3E8DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				905AD77D1E7889F700E3E8DB /* OpenGL.framework */,
+				905AD77B1E7889F200E3E8DB /* GLKit.framework */,
+				905AD7791E7889ED00E3E8DB /* AGL.framework */,
+				905AD7771E7889E400E3E8DB /* GLUT.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		905AD77F1E788A2300E3E8DB /* ObjLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				905AD7801E788A4800E3E8DB /* DisplayList.cpp */,
+				905AD7811E788A4800E3E8DB /* DisplayList.h */,
+				905AD7821E788A4800E3E8DB /* Material.cpp */,
+				905AD7831E788A4800E3E8DB /* Material.h */,
+				905AD7841E788A4800E3E8DB /* MtlLibrary.cpp */,
+				905AD7851E788A4800E3E8DB /* MtlLibrary.h */,
+				905AD7861E788A4800E3E8DB /* MtlLibraryManager.cpp */,
+				905AD7871E788A4800E3E8DB /* MtlLibraryManager.h */,
+				905AD7881E788A4800E3E8DB /* ObjLibrary-development-log.txt */,
+				905AD7891E788A4800E3E8DB /* ObjModel.cpp */,
+				905AD78A1E788A4800E3E8DB /* ObjModel.h */,
+				905AD78B1E788A4800E3E8DB /* ObjSettings.h */,
+				905AD78C1E788A4800E3E8DB /* ObjStringParsing.cpp */,
+				905AD78D1E788A4800E3E8DB /* ObjStringParsing.h */,
+				905AD78E1E788A4800E3E8DB /* SpriteFont.cpp */,
+				905AD78F1E788A4800E3E8DB /* SpriteFont.h */,
+				905AD7901E788A4800E3E8DB /* Texture.cpp */,
+				905AD7911E788A4800E3E8DB /* Texture.h */,
+				905AD7921E788A4800E3E8DB /* TextureBmp.cpp */,
+				905AD7931E788A4800E3E8DB /* TextureBmp.h */,
+				905AD7941E788A4800E3E8DB /* TextureManager.cpp */,
+				905AD7951E788A4800E3E8DB /* TextureManager.h */,
+				905AD7961E788A4800E3E8DB /* Vector2.cpp */,
+				905AD7971E788A4800E3E8DB /* Vector2.h */,
+				905AD7981E788A4800E3E8DB /* Vector3.cpp */,
+				905AD7991E788A4800E3E8DB /* Vector3.h */,
+			);
+			name = ObjLibrary;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		905AD76B1E7889D700E3E8DB /* A4 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 905AD7731E7889D700E3E8DB /* Build configuration list for PBXNativeTarget "A4" */;
+			buildPhases = (
+				905AD7681E7889D700E3E8DB /* Sources */,
+				905AD7691E7889D700E3E8DB /* Frameworks */,
+				905AD76A1E7889D700E3E8DB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = A4;
+			productName = A4;
+			productReference = 905AD76C1E7889D700E3E8DB /* A4 */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		905AD7641E7889D700E3E8DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Mandeep Singh";
+				TargetAttributes = {
+					905AD76B1E7889D700E3E8DB = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 905AD7671E7889D700E3E8DB /* Build configuration list for PBXProject "A4" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 905AD7631E7889D700E3E8DB;
+			productRefGroup = 905AD76D1E7889D700E3E8DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				905AD76B1E7889D700E3E8DB /* A4 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		905AD7681E7889D700E3E8DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				905AD79A1E788A4800E3E8DB /* DisplayList.cpp in Sources */,
+				905AD7A41E788A4800E3E8DB /* Vector2.cpp in Sources */,
+				905AD7A21E788A4800E3E8DB /* TextureBmp.cpp in Sources */,
+				905AD7A51E788A4800E3E8DB /* Vector3.cpp in Sources */,
+				905AD79C1E788A4800E3E8DB /* MtlLibrary.cpp in Sources */,
+				905AD7701E7889D700E3E8DB /* main.cpp in Sources */,
+				905AD7A11E788A4800E3E8DB /* Texture.cpp in Sources */,
+				905AD7AA1E788AD200E3E8DB /* Sleep.cpp in Sources */,
+				905AD79F1E788A4800E3E8DB /* ObjStringParsing.cpp in Sources */,
+				905AD79E1E788A4800E3E8DB /* ObjModel.cpp in Sources */,
+				905AD7A01E788A4800E3E8DB /* SpriteFont.cpp in Sources */,
+				905AD79D1E788A4800E3E8DB /* MtlLibraryManager.cpp in Sources */,
+				905AD79B1E788A4800E3E8DB /* Material.cpp in Sources */,
+				905AD7A31E788A4800E3E8DB /* TextureManager.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		905AD7711E7889D700E3E8DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		905AD7721E7889D700E3E8DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		905AD7741E7889D700E3E8DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		905AD7751E7889D700E3E8DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		905AD7671E7889D700E3E8DB /* Build configuration list for PBXProject "A4" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				905AD7711E7889D700E3E8DB /* Debug */,
+				905AD7721E7889D700E3E8DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		905AD7731E7889D700E3E8DB /* Build configuration list for PBXNativeTarget "A4" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				905AD7741E7889D700E3E8DB /* Debug */,
+				905AD7751E7889D700E3E8DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 905AD7641E7889D700E3E8DB /* Project object */;
+}

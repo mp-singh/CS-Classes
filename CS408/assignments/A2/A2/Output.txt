@@ -1,0 +1,3 @@
+OBJECT 0 spider.obj
+OBJECT 2 ladybug.obj
+OBJECT 4 spider.obj

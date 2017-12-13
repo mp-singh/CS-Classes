@@ -1,0 +1,16 @@
+##############################
+#  CS 201 MIPS Boilerplate   #
+#  University of Regina      #
+##############################
+
+			.text
+			.globl __start
+__start:	# execution starts here
+		###### Your code goes here ###### 
+
+			li $v0,10		# Exit
+			syscall		# Bye!
+
+			.data
+		###### Your data goes here ###### 
+

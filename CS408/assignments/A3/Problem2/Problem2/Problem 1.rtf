@@ -1,0 +1,54 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
+{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;\f1\fmodern\fcharset0 CourierNewPS-BoldMT;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;}
+{\*\expandedcolortbl;\csgray\c100000;\cssrgb\c0\c0\c0;\csgenericrgb\c100000\c100000\c100000;}
+\margl1440\margr1440\vieww28600\viewh18000\viewkind0
+\deftab720
+\pard\pardeftab720\sl440\sa0\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Problem 1:\
+Revised Algorithm:\
+\
+ANIMATION ALGORTHM:\
+00a m = ||A||\
+00b 
+\f1\b for 
+\f0\b0 a = 0, 1, 2, ..., m - 1\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 // for all attributes\
+00c\'a0\'a0 p\sub a\nosupersub  = head\sub a\nosupersub \
+00d\'a0\'a0 n\sub a\nosupersub  = head\sub a\nosupersub \
+00e 
+\f1\b end for
+\f0\b0 \
+00f t = 0\
+01\'a0 
+\f1\b while 
+\f0\b0 t\'a0 \uc0\u8804 \'a0 T\'a0\'a0\'a0\'a0\'a0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0// for all frames\
+02\'a0\'a0\'a0 
+\f1\b for 
+\f0\b0 a = 0, 1, 2, ..., m - 1\'a0\'a0\'a0\'a0\'a0\'a0\'a0 // for all attributes\
+03\'a0\'a0\'a0\'a0\'a0 
+\f1\b while
+\f0\b0  t\'a0 >\'a0 n\sub a\nosupersub  -> time\
+04a\'a0\'a0\'a0 \'a0\'a0\'a0p\sub a\nosupersub  = n\sub a\nosupersub \
+04b\'a0\'a0\'a0\'a0\'a0\'a0 n\sub a\nosupersub  = n\sub a\nosupersub  -> next\
+04c\'a0\'a0\'a0\'a0 
+\f1\b end
+\f0\b0  
+\f1\b while
+\f0\b0 \
+05\'a0\'a0\'a0\'a0\'a0 u = (t \'96 p\sub a\nosupersub  -> time) / (n\sub a\nosupersub  -> time \'96 p\sub a\nosupersub  -> time)\
+06\'a0\'a0\'a0\'a0\'a0 A\sub a\nosupersub  = (1 \'96 u) * (p\sub a\nosupersub  -> value)\'a0 + u * (n\sub a\nosupersub  -> value)\
+07\'a0\'a0\'a0 
+\f1\b end for
+\f0\b0 \
+08\'a0\'a0\'a0 draw object with values A\sub 0\nosupersub , A\sub 1\nosupersub , A\sub 2\nosupersub , ..., A\sub m-1\nosupersub \
+08b\'a0\'a0 could be a delay here, to reduce the frame rate, if necessary\
+08b\'a0\'a0 \uc0\u8710 t = getGlut(GLUT_ELAPSED_TIME) //elapsed time since last frame\
+08c\'a0\'a0 t = t + \uc0\u8710 t\
+09\'a0 
+\f1\b end for
+\f0\b0 \
+\
+\
+}

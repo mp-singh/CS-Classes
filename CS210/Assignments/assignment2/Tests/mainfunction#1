@@ -1,0 +1,186 @@
+
+#include <iostream>
+#include "Deck.h"
+using namespace std;
+
+int main()
+{
+	char choice, choice2, choice3;
+	CDeck Deck;
+	//CDeck::CDeck();
+	CCard a, b, c;
+
+	
+	cout << endl;
+	cout << "This program simulates a deck of cards represented as a stack." << endl;
+	cout << "please eneter one of the following options." << endl;
+	printOptions();
+	cout << "Please enter a choice: ";
+	cin >> choice;
+	//CDeck::CDeck(1);
+	while(choice !='q' || choice !='Q')
+	{
+		switch(choice)
+		{
+			case 'a':
+			{
+				cout << "Please choose from 'a', 'b', 'c': ";
+				cin >> choice2;
+				switch(choice2)
+				{
+					case 'a':
+					{
+						if(Deck.Push(a))
+						{
+							cout << "a has worked." << endl;
+						}
+						else
+							cout << "Couldn't store into variable 'a'." << endl;
+
+						printOptions();
+						cout << "Please make a selection: ";
+						cin >> choice;
+						break;
+					}
+					case 'b':
+					{
+						if(Deck.Push(b))
+						{
+							cout << "b has worked." << endl;
+						}
+						else
+							cout << "Couldn't store into variable 'b'." << endl;
+
+						printOptions();
+						cout << "Please make a selection: ";
+						cin >> choice;
+						break;
+					}
+					case 'c':
+					{
+						if(Deck.Push(c))
+						{
+							cout << "c has worked." << endl;
+						}
+						else
+							cout << "Couldn't store into variable 'c'." << endl;
+
+						printOptions();
+						cout << "Please make a selection: ";
+						cin >> choice;
+						break;
+					}
+					break;
+				}
+				break;
+			}
+			case 'r':
+			{
+				cout << "Please choose 'a', 'b', 'c' to store in: ";
+				cin >> choice3;
+				switch(choice3)
+				{
+					case 'a':
+					{
+						Deck.Top(a);
+						if(Deck.Pop())
+						{
+							cout <<"Removed and stored in variable 'a'."<<endl;
+							printOptions();
+							cout << "Please make a selection: ";
+							cin >> choice;
+						}
+						else
+						{
+							cout << "Not removed" << endl;
+							printOptions();
+							cout << "Please make a selection: ";
+							cin >> choice;
+						}
+						break;
+					}
+					case 'b':
+					{
+						Deck.Top(b);
+						if(Deck.Pop())
+						{
+							cout <<"removed and stored in variable 'b'."<<endl;
+							printOptions();
+							cout << "Please make a selection: ";
+							cin >> choice;
+						}
+						else
+						{
+							cout << "not removed" << endl;
+							printOptions();
+							cout << "Please make a selection: ";
+							cin >> choice;
+						}
+						break;
+					}
+					case 'c':
+					{
+						Deck.Top(c);
+						if(Deck.Pop())
+						{
+							cout <<"removed and stored in variable 'c'."<<endl;
+							printOptions();
+							cout << "Please make a selection: ";
+							cin >> choice;
+						}
+						else
+						{
+							cout << "not removed" << endl;
+							printOptions();
+							cout << "Please make a selection: ";
+							cin >> choice;
+						}
+						break;
+					}
+					break;
+				}
+				break;
+			}
+			case 'p':
+			{	
+				Deck.PrintAll();
+				printOptions();
+				cout << "Please make a selection: ";
+				cin >> choice;
+				break;
+			}
+			case 'g':
+			{
+				Deck.numOfCards();
+				printOptions();
+				cout << "Please make a selection: ";
+				cin >> choice;
+				break;
+			}
+			case 'q':
+			{
+				cout << "Program ended.";
+				return 0;
+			}
+			case 's':
+			{
+				Deck.Shuffle();
+				printOptions();
+				cout << "Please make a selection: ";
+				cin >> choice;
+				break;
+			}
+			case 'c':
+			{
+				Deck.cutDeck();
+				printOptions();
+				cout << "Please make a selection: ";
+				cin >> choice;
+				break;
+			}
+		}
+
+	}
+	return 0;
+
+}
